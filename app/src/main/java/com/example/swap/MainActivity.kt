@@ -19,17 +19,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            //Superficie de la app
             Surface(modifier =
             Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
                 val navController = rememberNavController()
+                //Control de navegación
                 NavHost(navController =navController , startDestination = "home"){
+                    //Primera pantalla
                     composable(route = "home"){
                         HomeScreen{
                             navController.navigate("detail")
                         }
                     }
+                    //Segunda pantalla
                     composable(route = "detail"){
                         DetailScreen{
                             navController.navigate("home")
